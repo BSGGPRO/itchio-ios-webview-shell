@@ -14,7 +14,7 @@
 │   ├── ViewController.swift   # GCDWebServer + WKWebView，wasm MIME、Range、热降级
 │   ├── Info.plist             # 端口 / 入口 / 横屏 / ATS 本地网络
 │   └── Assets.xcassets/       # 空 AppIcon，自己放 1024x1024 图标
-├── project.yml                # XcodeGen 工程定义（Bundle ID 占位 com.yourname.gmdm）
+├── project.yml                # XcodeGen 工程定义（Bundle ID 占位 com.yourname.itchio）
 ├── Podfile                    # 依赖 GCDWebServer
 └── .github/workflows/build.yml # GitHub Actions 云编译 unsigned IPA
 ```
@@ -42,7 +42,7 @@ xcodebuild -workspace itchio.xcworkspace -scheme itchio -configuration Release \
 - 端口和入口：改 `Info.plist` 的 `LocalServerPort`（默认 8080）、`EntryPath`（默认 /index.html），不用动代码；
 - ATS：只放开本地回环明文（`NSAllowsLocalNetworking`），不放开外网明文；
 - 界面方向：默认横屏（LandscapeLeft/Right），竖屏游戏改 `Info.plist` 的 `UISupportedInterfaceOrientations`；
-- 发热处理：`ViewController.swift` 监听系统热状态，过热时调用网页的 `__gmdmSetThermalFactor(2)` 降帧，平时满帧；
+- 发热处理：`ViewController.swift` 监听系统热状态，过热时调用网页的 `__itchioSetThermalFactor(2)` 降帧，平时满帧；
 - 代码里搜 `itchio` 全局替换成你的 App 名即可。
 
 ## 已知坑（都处理好了，别回退）
