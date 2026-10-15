@@ -1,0 +1,25 @@
+name: GMDM
+options:
+  bundleIdPrefix: com.yourname
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+
+targets:
+  GMDM:
+    type: application
+    platform: iOS
+    sources:
+      - GMDM
+    resources:
+      - path: www
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourname.gmdm
+        INFOPLIST_FILE: GMDM/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1"
+        IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+        SWIFT_VERSION: "5.0"

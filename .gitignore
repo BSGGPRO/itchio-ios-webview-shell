@@ -1,0 +1,9 @@
+# 游戏文件不入库
+www/
+# 编译产物
+artifacts/
+*.ipa
+build/
+Payload/
+# macOS
+.DS_Store
