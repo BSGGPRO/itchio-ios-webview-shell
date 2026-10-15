@@ -1,7 +1,7 @@
 platform :ios, '15.0'
 use_frameworks!
 
-target 'GMDM' do
+target 'itchio' do
   pod 'GCDWebServer'
 end
 

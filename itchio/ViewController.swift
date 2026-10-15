@@ -55,13 +55,13 @@ final class ViewController: UIViewController {
         default:
             factor = 1
         }
-        let js = "window.__gmdmSetThermalFactor && window.__gmdmSetThermalFactor(\(factor))"
+        let js = "window.__itchioSetThermalFactor && window.__itchioSetThermalFactor(\(factor))"
         webView?.evaluateJavaScript(js, completionHandler: nil)
     }
 
     private func startLocalServer() {
         guard let wwwDir = Bundle.main.path(forResource: "www", ofType: nil) else {
-            print("[GMDM] www directory not found in bundle")
+            print("[itchio] www directory not found in bundle")
             return
         }
 
@@ -97,9 +97,9 @@ final class ViewController: UIViewController {
                 "Port": UInt(port),
                 "BindToLocalhostOnly": true
             ])
-            print("[GMDM] local server started on 127.0.0.1")
+            print("[itchio] local server started on 127.0.0.1")
         } catch {
-            print("[GMDM] server start failed: \(error)")
+            print("[itchio] server start failed: \(error)")
         }
         server = srv
     }

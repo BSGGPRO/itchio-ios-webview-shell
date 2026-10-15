@@ -1,4 +1,4 @@
-# gmdm-ios-webview-shell
+# itchio-ios-webview-shell
 
 把 Unity WebGL 网页游戏套成 iOS App 的壳（本地服务器 + WKWebView），不用游戏源码、不用重编译 Unity 工程。
 
@@ -9,7 +9,7 @@
 ## 结构
 
 ```
-├── GMDM/
+├── itchio/
 │   ├── AppDelegate.swift
 │   ├── ViewController.swift   # GCDWebServer + WKWebView，wasm MIME、Range、热降级
 │   ├── Info.plist             # 端口 / 入口 / 横屏 / ATS 本地网络
@@ -32,7 +32,7 @@
 brew install xcodegen
 xcodegen generate
 pod install
-xcodebuild -workspace GMDM.xcworkspace -scheme GMDM -configuration Release \
+xcodebuild -workspace itchio.xcworkspace -scheme itchio -configuration Release \
   -destination 'generic/platform=iOS' -derivedDataPath build \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
 ```
@@ -43,7 +43,7 @@ xcodebuild -workspace GMDM.xcworkspace -scheme GMDM -configuration Release \
 - ATS：只放开本地回环明文（`NSAllowsLocalNetworking`），不放开外网明文；
 - 界面方向：默认横屏（LandscapeLeft/Right），竖屏游戏改 `Info.plist` 的 `UISupportedInterfaceOrientations`；
 - 发热处理：`ViewController.swift` 监听系统热状态，过热时调用网页的 `__gmdmSetThermalFactor(2)` 降帧，平时满帧；
-- 代码里搜 `GMDM` 全局替换成你的 App 名即可。
+- 代码里搜 `itchio` 全局替换成你的 App 名即可。
 
 ## 已知坑（都处理好了，别回退）
 
